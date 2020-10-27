@@ -1,3 +1,3 @@
-# gulp-4-starter 
+# gulp-boilerplate 
 
-Gulp 4 starter(SCSS, Babel, Browser Sync)
+Gulp boilerplate(SCSS, Babel, Browser Sync)
