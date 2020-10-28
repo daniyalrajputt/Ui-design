@@ -2,164 +2,56 @@ var navigation = new TimelineLite({ paused: true, reversed: true });
 navigation.to("#navigationWrap", 0.5, { opacity: 0.9, display: 'flex', left: 0 })
     .to(".navbar", 0.3, { opacity: 0 }, "-=0.1")
     .to(".close", 0.3, { display: "block", opacity: 1 }, "-=0.1")
-    .from(".menu", 0.5, { opacity: 0, y: 30 })
-    .from(".social", 0.5, { opacity: 0 });
+    .from(".nav-item-1", 0.5, { opacity: 0, x: -200 })
+    .from(".nav-item-2", 0.5, { opacity: 0, x: 200, delay: .1 })
+    .from(".nav-item-3", 0.5, { opacity: 0, x: -200, delay: .11 })
+    .from(".nav-item-4", 0.5, { opacity: 0, x: 200, delay: .12 })
+    .from(".nav-item-5", 0.5, { opacity: 0, x: -200, delay: .13 })
+    .from(".nav-item-6", 0.5, { opacity: 0, x: 200, delay: .14 })
+    .from(".nav-item-7", 0.5, { opacity: 0, x: -200, delay: .15 })
 
 $(".navbar, .close").click(function () {
     navigation.reversed() ? navigation.play() : navigation.reverse();
 })
 
-// gsap.registerPlugin(ScrollTrigger);
 
-// ScrollTrigger.defaults({
-//     toggleActions: "restart pause resume pause"
-// });
+function animateFrom(elem, direction) {
+    direction = direction | 1;
 
-// gsap.to(".orange p", {
-//     scrollTrigger: ".orange",
-//     duration: 2,
-//     rotation: 360
-// });
+    var x = 0,
+        y = direction * 100;
+    if (elem.classList.contains("left-side")) {
+        x = -100;
+        y = 0;
+    } else if (elem.classList.contains("right-side")) {
+        x = 100;
+        y = 0;
+    }
+    gsap.fromTo(elem, { x: x, y: y, autoAlpha: 0 }, {
+        duration: 2.25,
+        x: 0,
+        y: 0,
+        autoAlpha: 1,
+        ease: "expo",
+        overwrite: "auto"
+    });
+}
 
-// gsap.to("#section-1", {
-//     scrollTrigger: {
-//         trigger: "#section-1",
-//         toggleActions: "restart pause reverse pause"
-//     },
-//     duration: 1,
-//     backgroundColor: "#FFA500",
-//     ease: "none"
-// });
+function hide(elem) {
+    gsap.set(elem, { autoAlpha: 0 });
+}
 
-// gsap.to(".yoyo p", {
-//     scrollTrigger: ".yoyo",
-//     scale: 2,
-//     repeat: -1,
-//     yoyo: true,
-//     ease: "power2"
-// });
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
 
-// gsap.to(".heading", {
-//     scrollTrigger: ".heading", // start the animation when ".box" enters the viewport (once)
-//     x: 500
-// });
+    gsap.utils.toArray(".heading, .sub-heading, .paragraph, .dot-pattern-3,.dot-pattern-2, .dot-pattern-1,.parallex-img-1,.parallex-img-2").forEach(function (elem) {
+        hide(elem); // assure that the element is hidden when scrolled into view
 
-
-var scene = document.getElementById('section-1');
-var parallax = new Parallax(scene);
-
-TweenMax.from(".heading", 1, {
-    opacity: 0,
-    x: -20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.staggerFrom(".menu-links ul li", 1, {
-    opacity: 0,
-    x: -20,
-    ease: Power3.easeInOut
-}, 0.08)
-
-TweenMax.from(".search", 1, {
-    delay: .5,
-    opacity: 0,
-    x: -20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".account", 1, {
-    delay: .6,
-    opacity: 0,
-    x: -20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".cart", 1, {
-    delay: .7,
-    opacity: 0,
-    x: -20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".juice", 1, {
-    delay: 2,
-    opacity: 0,
-    y: -800,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".leaves .layer:nth-child(1)", 2, {
-    delay: 2,
-    opacity: 0,
-    y: -800,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".leaves .layer:nth-child(2)", 2, {
-    delay: 2.1,
-    opacity: 0,
-    y: -800,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".leaves .layer:nth-child(3)", 2, {
-    delay: 2.2,
-    opacity: 0,
-    y: -800,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".leaves .layer:nth-child(4)", 2, {
-    delay: 2.3,
-    opacity: 0,
-    y: -800,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".leaves .layer:nth-child(5)", 2, {
-    delay: 2.5,
-    opacity: 0,
-    y: -800,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".title", 1, {
-    delay: 1,
-    opacity: 0,
-    y: 20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".tagline", 1, {
-    delay: 1.3,
-    opacity: 0,
-    y: 20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".pages", 1, {
-    delay: 1.3,
-    opacity: 0,
-    y: 20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".more", 1, {
-    delay: 1.4,
-    opacity: 0,
-    y: 20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".desc", 1, {
-    delay: 1.4,
-    opacity: 0,
-    y: 20,
-    ease: Expo.easeInOut
-})
-
-TweenMax.from(".arrows", 1, {
-    delay: 2,
-    opacity: 0,
-    ease: Expo.easeInOut
-})
+        ScrollTrigger.create({
+            trigger: elem,
+            onEnter: function () { animateFrom(elem) },
+            onEnterBack: function () { animateFrom(elem, -2) },
+            onLeave: function () { hide(elem) } // assure that the element is hidden when scrolled into view
+        });
+    });
+});
