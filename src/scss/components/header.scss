@@ -46,12 +46,19 @@ header {
   font-family: $ff-secondary;
   margin: 25px 0;
   color: $text-color;
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
 }
 .paragraph {
   font-size: 18px;
   color: $text-color;
   font-family: $ff-primary;
   width: 514px;
+  @media (max-width: 768px) {
+    font-size: 16px;
+    width: 300px;
+  }
 }
 .sub-heading {
   font-size: 16px;
@@ -59,4 +66,27 @@ header {
   font-family: $ff-primary;
   color: $text-color;
   margin-left: 15px;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 100%;
+    .container {
+      position: relative;
+      flex-direction: column;
+      right: 0;
+      .left-header-side {
+        width: 100%;
+        margin-top: 5rem;
+        padding: 0 25px;
+      }
+      .right-header-side{
+        width: 100%;
+        margin-top: 3rem;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
 }
