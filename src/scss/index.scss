@@ -1,12 +1,28 @@
+@use 'base/variables' as *;
 @use 'base/reset';
 @use 'base/fonts';
 @use 'base/base';
 
+@use 'components/nav';
 @use 'components/header';
 @use 'components/section';
 
-
-
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
+  padding-bottom: 10rem;
+  background: $primary-color !important;
 }
+
+.main-page {
+  display: flex;
+  .main-content {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .dot-pattern-1 {
+      position: absolute;
+      z-index: 111;
+    }
+  }
+}
+
