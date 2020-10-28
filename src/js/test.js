@@ -1,5 +1,5 @@
 var navigation = new TimelineLite({ paused: true, reversed: true });
-navigation.to("#navigationWrap", 0.5, { opacity: 0.9, display: 'flex' })
+navigation.to("#navigationWrap", 0.5, { opacity: 0.9, display: 'flex', left: 0 })
     .to(".navbar", 0.3, { opacity: 0 }, "-=0.1")
     .to(".close", 0.3, { display: "block", opacity: 1 }, "-=0.1")
     .from(".menu", 0.5, { opacity: 0, y: 30 })
