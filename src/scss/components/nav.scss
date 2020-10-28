@@ -1,0 +1,101 @@
+@use '../base/variables' as *;
+
+.nav {
+  // background-color: $primary-color;
+  width: 90px;
+  // height: 100%;
+}
+
+#navigationWrap {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  z-index: 1111;
+  background: $primary-color;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  padding: 50px 0;
+  overflow: hidden;
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // margin: 0 auto;
+    color: $text-color;
+    .left-nav-side {
+      .nav-item {
+        width: 390px;
+        text-align: right;
+        h2 {
+          font-size: 18px;
+          font-family: $ff-primary;
+          color: $text-color;
+        }
+        p {
+          font-size: 16px;
+          font-family: $ff-primary;
+        }
+      }
+      .mb-3 {
+        margin-bottom: 3rem;
+      }
+      .mt-3{
+        margin-top: 3rem;
+      }
+    }
+    .right-nav-side {
+      padding-bottom: 3rem;
+      .nav-item {
+        width: 390px;
+        text-align: left;
+        h2 {
+          font-size: 18px;
+          font-family: $ff-primary;
+          color: $text-color;
+        }
+        p {
+          font-size: 16px;
+          font-family: $ff-primary;
+        }
+      }
+      .mb-3 {
+        margin-bottom: 3rem;
+      }
+      .mt-3{
+        margin-top: 3rem;
+      }
+    }
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 45px;
+  height: 45px;
+  z-index: 20;
+  cursor: pointer;
+}
+.close {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  z-index: 20;
+  cursor: pointer;
+  i {
+    font-size: 5vh;
+    color: $text-color;
+  }
+}
